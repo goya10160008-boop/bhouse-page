@@ -1,0 +1,150 @@
+/* Colors: white and pale mint, one accent (jade) */
+:root{--jade:#00756F;--jade-dark:#00403d;--mint:#eef8f6;--ink:#1a2928;--muted:#4a5f5d;--line:#d6e6e3}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:"Public Sans",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.6;padding-bottom:60px} /* room for call bar */
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--jade);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* Skip link: hidden until focused by keyboard */
+.skip{position:absolute;left:-999px;top:8px;background:var(--jade);color:#fff;padding:10px 16px;z-index:30}
+.skip:focus{left:8px}
+
+/* Sticky header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:700;font-size:19px;text-decoration:none;color:var(--jade)}
+nav a{margin-left:18px;font-size:14px;text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--jade)}
+
+/* Hero: photo fills the box, mint-jade gradient keeps white text readable */
+.hero{position:relative;min-height:min(80vh,620px);display:flex;align-items:flex-end;color:#fff;background:var(--jade-dark);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,48,46,.95) 0%,rgba(0,64,61,.78) 45%,rgba(0,117,111,.12) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:48px;width:100%}
+.tag{display:inline-block;background:var(--mint);color:var(--jade-dark);font-size:13px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:14px}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.15;max-width:640px;margin-bottom:12px}
+.hero p{font-size:clamp(16px,2.4vw,19px);max-width:560px;margin-bottom:22px}
+
+/* Buttons */
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hero .btns{margin-top:0}
+.btn{display:inline-block;padding:13px 22px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none}
+.btn-main{background:var(--jade);color:#fff;border:1.5px solid var(--jade)}
+.btn-main:hover{background:var(--jade-dark);border-color:var(--jade-dark)}
+.hero .btn-main,.cta .btn-main{background:#fff;color:var(--jade-dark);border-color:#fff}
+.hero .btn-main:hover,.cta .btn-main:hover{background:var(--mint)}
+.btn-alt{border:1.5px solid #fff;color:#fff}
+.btn-line{border:1.5px solid var(--jade);color:var(--jade)}
+
+/* Trust strip */
+.trust{background:var(--mint);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding-top:22px;padding-bottom:22px;text-align:center}
+.trust strong{display:block;font-size:19px;color:var(--jade)}
+.trust span{font-size:13px;color:var(--muted)}
+
+/* Sections */
+section{padding:56px 0}
+h2{font-size:clamp(24px,4vw,32px);color:var(--jade-dark);margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:28px;max-width:560px}
+.alt{background:var(--mint);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{font-size:17px;margin-bottom:6px;color:var(--jade-dark)}
+.card p{font-size:15px;color:var(--muted)}
+.price{font-size:26px;font-weight:700;color:var(--jade)}
+.price small{display:block;font-size:13px;font-weight:400;color:var(--muted)}
+ul.ticks{list-style:none;margin-top:22px}
+ul.ticks li{padding-left:24px;position:relative;margin:6px 0;font-size:15px}
+ul.ticks li::before{content:"\2713";position:absolute;left:0;color:var(--jade);font-weight:700}
+#rules ul.ticks{margin-top:0}
+#rules .highlights{margin-bottom:20px}
+.rules-list{border-top:1px solid var(--line)}
+.rules-list details ul.ticks{margin-top:10px}
+.rules-list details ul.ticks li{font-size:14.5px;color:var(--muted)}
+.rules-note{margin-top:20px}
+
+/* FAQ (details/summary, no JavaScript) */
+.faq{max-width:700px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600;color:var(--jade-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--jade);font-weight:400;transition:transform .2s ease}
+details[open]>summary::after{content:"\2212"} /* minus sign */
+details p{margin-top:8px;color:var(--muted);font-size:15px}
+
+/* Contact + map */
+.contact{display:grid;gap:24px;grid-template-columns:1fr}
+.info p{margin:8px 0}
+.info p:first-child{margin-top:0}
+.info p a{color:var(--jade);font-weight:600}
+.map{display:block;width:100%;height:100%;min-height:280px;border:1px solid var(--line);border-radius:12px}
+.note{font-size:13px;color:var(--muted)}
+
+/* Closing band */
+.cta{background:var(--jade-dark);color:#fff;text-align:center}
+.cta h2{color:#fff;margin-bottom:18px}
+
+footer{text-align:center;padding:24px 20px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line)}
+
+/* Sticky call bar: phones only */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--jade);color:#fff;text-align:center;font-weight:700;padding:16px;text-decoration:none}
+
+@media(min-width:760px){
+  .logo{font-size:22px}
+  .trust .wrap{grid-template-columns:repeat(4,1fr)}
+  .contact{grid-template-columns:1fr 1fr}
+  .callbar{display:none}
+  body{padding-bottom:0}
+}
+@media(max-width:620px){nav a:not(.keep){display:none}}
+
+/* ---------- Animations (CSS only; all of it is switched off for people who prefer reduced motion) ---------- */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:no-preference){
+  /* Navigation: link underline slides in, header gets a soft shadow once you scroll */
+  header{transition:box-shadow .3s ease}
+  header.scrolled{box-shadow:0 2px 12px rgba(0,64,61,.12)}
+  nav a{position:relative;transition:color .2s ease}
+  nav a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--jade);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  nav a:hover::after,nav a:focus-visible::after{transform:scaleX(1)}
+  summary{transition:color .2s ease}
+
+  /* Buttons: small lift on hover, small press on click */
+  .btn,.callbar{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .15s ease,box-shadow .2s ease}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,64,61,.2)}
+  .btn:active,.callbar:active{transform:translateY(0) scale(.98);box-shadow:none}
+
+  /* Cards: very gentle lift (only on devices with a mouse) */
+  .card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  @media(hover:hover){.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,64,61,.10);border-color:var(--jade)}}
+
+  /* Hero: photo fades in and settles, then the text fades up one piece at a time */
+  .hero img{animation:heroImg 1.2s ease-out both}
+  .hero .tag,.hero h1,.hero p,.hero .btns{animation:fadeUp .7s ease-out both}
+  .hero .tag{animation-delay:.15s}
+  .hero h1{animation-delay:.25s}
+  .hero p{animation-delay:.4s}
+  .hero .btns{animation-delay:.55s}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes heroImg{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+
+  /* Scroll reveal: items start slightly lower and transparent, then ease in (the small script at the bottom of index.html adds .in) */
+  .js [data-reveal]{opacity:0;translate:0 16px;
+    transition:opacity .6s ease,translate .6s ease,transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+    transition-delay:var(--d,0s),var(--d,0s),0s,0s,0s}
+  .js [data-reveal].in{opacity:1;translate:0 0}
+}
+
+/* ---------- Icons ---------- */
+/* Icons: drawn with lines, take the colour of the text around them */
+.ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.2em;margin-right:.45em}
+.trust .ic{display:block;width:30px;height:30px;margin:0 auto 6px;color:var(--jade)}
+.card h3 .ic{display:block;width:34px;height:34px;padding:7px;box-sizing:content-box;background:var(--mint);border-radius:10px;color:var(--jade);margin:0 0 12px}
+.info p{display:flex;gap:2px;align-items:flex-start}
+.info p .ic{margin-top:.2em;color:var(--jade)}
+.info p span{display:block}
+@media(max-width:759px){.callbar{display:flex;justify-content:center;align-items:center}}
+.callbar .ic{margin-right:.5em}
+#why .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))} /* 6 cards: 3 across on desktop */

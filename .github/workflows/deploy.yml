@@ -1,0 +1,46 @@
+# Workflow = an automated recipe GitHub runs for you. This one publishes the site.
+name: Deploy to GitHub Pages
+
+# Trigger: run every time code is pushed to the main branch.
+on:
+  push:
+    branches: [main]
+
+# Permissions the job's temporary token gets (least privilege).
+permissions:
+  contents: read   # read the repo files
+  pages: write     # allowed to publish to GitHub Pages
+  id-token: write  # lets deploy-pages prove the deploy is genuine
+
+# Only one deploy at a time; a newer push cancels an older unfinished one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # The "github-pages" environment records the live URL on the run page.
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    # Run on a fresh virtual machine provided by GitHub.
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: download this repo's files onto the VM.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step 2: read the Pages settings (site URL etc.) from the repo.
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Step 3: zip the whole folder (".") into an artifact, a package ready to publish.
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      # Step 4: publish the artifact to GitHub Pages. This makes the site live.
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

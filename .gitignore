@@ -1,0 +1,12 @@
+# Private notes and tools: not part of the website
+CLAUDE.md
+.claude/
+BRIEF.md
+PLAN.md
+PRODUCT.md
+DESIGNS.md
+content.md
+house_rules/
+tests/
+skills-lock.json
+.impeccable/
