@@ -98,7 +98,7 @@ footer{text-align:center;padding:24px 20px;font-size:13.5px;color:var(--muted);b
   .callbar{display:none}
   body{padding-bottom:0}
 }
-@media(max-width:620px){nav a:not(.keep){display:none}}
+
 
 /* ---------- Animations (CSS only; all of it is switched off for people who prefer reduced motion) ---------- */
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -172,3 +172,15 @@ html{scroll-padding-bottom:70px}
   .hero .wrap{padding-top:60px}
   .trust strong{font-size:17px}
 }
+
+/* Phones: logo on top, all five links in a row under it (they do not fit beside the logo) */
+@media(max-width:620px){
+  header .wrap{flex-direction:column;align-items:stretch;height:auto;padding-top:4px}
+  .logo{text-align:center}
+  nav{display:flex;justify-content:space-between}
+  nav a{margin-left:0;padding:12px 6px;font-size:14px}
+  nav a::after{left:6px;right:6px;bottom:6px}
+  html{scroll-padding-top:110px}
+}
+/* Very small phones (320px): keep each link on one line */
+@media(max-width:340px){nav a{padding:12px 2px;white-space:nowrap}}
