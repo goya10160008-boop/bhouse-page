@@ -148,3 +148,27 @@ footer{text-align:center;padding:24px 20px;font-size:13.5px;color:var(--muted);b
 @media(max-width:759px){.callbar{display:flex;justify-content:center;align-items:center}}
 .callbar .ic{margin-right:.5em}
 #why .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))} /* 6 cards: 3 across on desktop */
+
+/* ---------- Phone polish: bigger tap areas, tighter headings, readable small text ---------- */
+h2,h3,.trust strong{line-height:1.25}
+.trust span{line-height:1.4}
+.tag,.trust span,.price small,.note,footer{font-size:14px}
+/* Tap targets of about 44px (the size of a finger tip) */
+details{padding:0}
+summary{padding:14px 0;min-height:44px}
+details p{margin-top:0;padding-bottom:14px}
+.rules-list details ul.ticks{margin-top:0;padding-bottom:12px}
+.logo{padding:8px 0}
+nav a{padding:14px 8px;margin-left:6px}
+nav a::after{left:8px;right:8px;bottom:8px}
+.info p a{display:inline-block;padding:10px 0;white-space:nowrap}
+footer a{display:inline-block;padding:12px 6px}
+html{scroll-padding-bottom:70px}
+@media(max-width:620px){
+  .hero .btns .btn{flex:1 1 100%;text-align:center}
+}
+@media(max-width:380px){
+  h1{font-size:28px}
+  .hero .wrap{padding-top:60px}
+  .trust strong{font-size:17px}
+}
